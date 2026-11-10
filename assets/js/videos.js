@@ -5,7 +5,6 @@
     "v-calling-status",
     "v-crm-basics-arrive",
     "v-crm-basics-open",
-    "v-exotel-after",
     "v-exotel-call",
     "v-exotel-login",
     "v-exotel-setup",
