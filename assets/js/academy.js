@@ -68,7 +68,9 @@
       const row = (label, list, c) => `<div class="journey ${c}"><p class="k">${label}</p><ol>${list.map((s) => `<li>${esc(s)}</li>`).join("")}</ol></div>`;
       if (kind === "stages") return row("Enquiry stages", STAGES.enquiry, "enq");
       if (kind === "appstages") return row("Application stages", STAGES.application, "appl");
-      return row("Enquiry", STAGES.enquiry, "enq") + `<div class="startapp">Start Application ↓</div>` + row("Application", STAGES.application, "appl");
+      return row("1. Enquiry", STAGES.enquiry, "enq") +
+        row("2. After Visit Done: fees and discount (Data tab)", ["Enter fees", "Enter discount amount", "Enter discount reason", "Discount approval request goes out", "Approved"], "fee") +
+        `<div class="startapp">3. In parallel: Start Application ↓ (update statuses by hand until the ERP link is live)</div>` + row("Application", STAGES.application, "appl");
     }
     if (kind === "statustable") return table(["Status", "Stage", "What it means"], A.STATUS_TABLE);
     if (kind === "viewstable") return table(["Quick view", "What it shows", "When to use"], A.VIEWS_TABLE);

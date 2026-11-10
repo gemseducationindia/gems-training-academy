@@ -20,7 +20,7 @@
           intro: "You are the single point of contact for Exotel and the CRM for every school counsellor.",
           steps: [
             "<b>Exotel:</b> you manage all counsellor accounts, groups, flows and numbers.",
-            "<b>CRM:</b> you train counsellors and answer their questions. You <b>view</b> the CRM; you do not change settings or data without Dr Jay's OK.",
+            "<b>CRM:</b> you train counsellors, answer their questions and set up CRM telephony for new counsellors (first few times with Dr Jay on the call). Other CRM settings and data: only with Dr Jay's OK.",
             "<b>Escalation:</b> counsellor → you → Dr Jay. Try to solve it first, then escalate with details (counsellor, lead ID, screenshot, time).",
             "<b>First 10-15 days:</b> every request is done together with Dr Jay on a live call with screen sharing.",
             "<b>Goal:</b> fully on your own within 1-2 months."
@@ -96,7 +96,7 @@
             "<b>3. Create their group</b> (one person, named after them).",
             "<b>4. Duplicate a flow</b> in App Bazaar, rename it, point it to their group.",
             "<b>5. Give the flow an official number</b> in ExoPhones.",
-            "<b>6. CRM telephony setup</b> (with Dr Jay), so Call works in the CRM."
+            "<b>6. CRM telephony setup</b>, so Call works in the CRM."
           ],
           tip: "Keep this checklist open on a second screen the first few times."
         },
@@ -194,7 +194,7 @@
           steps: [
             "Email Dr Jay with the six details in the template below.",
             "The email is picked up and the CRM user is created, then you get a confirmation.",
-            "Then do the <b>CRM telephony setup</b> (in the CRM admin section) so Call works for them."
+            "Then do the <b>CRM telephony setup</b> yourself (CRM admin section) so Call works for them."
           ]
         },
         {
@@ -279,7 +279,7 @@
             "<b>Public views</b> on the left are shared lists every counsellor uses.",
             "Each counsellor sees only their own campus leads."
           ],
-          warn: "View only. Do not change leads, settings or views without Dr Jay's OK."
+          warn: "Apart from telephony setup, do not change leads, settings or views without Dr Jay's OK."
         },
         {
           id: "telephony",
@@ -292,7 +292,7 @@
             "Pick the counsellor's <b>user</b>.",
             "Fill the fields shown in the next topic, then <b>Save</b>."
           ],
-          warn: "For now, do this together with Dr Jay on a call."
+          tip: "This is written so you can do it on your own. For the first few setups Dr Jay will be on the call with you; after that you run it independently."
         },
         {
           id: "telephony-fields",
@@ -327,9 +327,10 @@
           extra: "journey",
           steps: [
             "<b>Enquiry stages:</b> New → Contacted → Visit Scheduled → Visit Done.",
-            "<b>Start Application</b> turns the enquiry into an Application.",
-            "<b>Application stages:</b> Application Submitted → Application Fee Paid → Documents Submitted → Admission Letter Released → Blocking Fee Paid → Enrolled.",
-            "Fees and discounts are entered in the <b>Data tab</b>. Discounts go for approval.",
+            "<b>After Visit Done: fees.</b> In the lead's <b>Data</b> tab, the counsellor enters the fees, the <b>discount amount</b> and the <b>discount reason</b>.",
+            "<b>Discount approval:</b> once amount and reason are in, the approval request goes out by itself. The lead shows <b>Awaiting approval</b> until it is approved.",
+            "<b>Application, in parallel:</b> the counsellor can click <b>Start Application</b> while approval is pending and keep moving.",
+            "<b>Application stages:</b> Application Submitted → Application Fee Paid → Documents Submitted → Admission Letter Released → Blocking Fee Paid → Enrolled. Update each status by hand until the ERP integration is live.",
             "Ends: <b>Junk</b> or <b>Lost</b> (enquiry), <b>Waitlisted, Rejected, Withdrawn</b> (application)."
           ]
         },
@@ -495,6 +496,9 @@ Next session:`;
         { type: "single", q: "Which phone number is marked Primary in the telephony agent?", options: ["The counsellor's personal SIM", "The school landline", "Dr Jay's number"], answer: 0, explain: "Personal SIM, Is Primary ticked; Exotel Number holds the official number." },
         { type: "order", q: "Put the enquiry stages in order.", items: ["New", "Contacted", "Visit Scheduled", "Visit Done"], explain: "New → Contacted → Visit Scheduled → Visit Done." },
         { type: "order", q: "Put the application stages in order.", items: ["Application Submitted", "Application Fee Paid", "Documents Submitted", "Admission Letter Released", "Blocking Fee Paid", "Enrolled"], explain: "This is the order every application follows." },
+        { type: "order", q: "Put the journey in order.", items: ["Visit Done", "Enter fees, discount amount and reason (Data tab)", "Discount approval", "Start Application and move the application statuses"], explain: "Visit Done → fees → discount approval → application. The application can start while approval is pending." },
+        { type: "single", q: "When does the discount approval request go out?", options: ["Once the fees, discount amount and discount reason are entered", "When the family is Enrolled", "Only if the counsellor emails Finance"], answer: 0, explain: "Amount + reason entered = approval request goes out." },
+        { type: "single", q: "The discount is still awaiting approval. Can the counsellor start the application?", options: ["Yes, in parallel, and keep updating statuses", "No, wait for approval first", "Only after enrolment"], answer: 0, explain: "Approval and application run in parallel." },
         { type: "single", q: "A family is a real enquiry but chose another school. Status?", options: ["Lost", "Junk", "Contacted"], answer: 0, explain: "Real family who won't join = Lost, with a reason." },
         { type: "single", q: "The number belongs to someone looking for a job. Status?", options: ["Junk", "Lost", "New"], answer: 0, explain: "Not a real enquiry = Junk." },
         { type: "single", q: "What moves a lead from New to Contacted?", options: ["Logging the call as \"Spoke to parent\"", "Opening the lead", "Calling and nobody answers"], answer: 0, explain: "Only a real conversation makes it Contacted." },
@@ -502,7 +506,7 @@ Next session:`;
         { type: "single", q: "Which view shows leads whose last call was not picked up?", options: ["DNP Leads", "Fresh leads", "Visits today"], answer: 0, explain: "DNP = Did Not Pick up." },
         { type: "single", q: "A coordinator wants to log a joined student's term feedback. Where?", options: ["MyClassboard (ERP)", "The CRM lead notes", "Exotel"], answer: 0, explain: "The CRM is for admissions only." },
         { type: "single", q: "A counsellor's Exotel call is not on the lead's Calls tab. What do you do?", options: ["Tell Dr Jay with the lead ID (known linking issue)", "Ask them to call again", "Create a new lead"], answer: 0, explain: "Exotel calls are linked in bulk until the fix is live." },
-        { type: "single", q: "Can you change CRM settings or data on your own right now?", options: ["No, view only until Dr Jay approves", "Yes, anything", "Only statuses"], answer: 0, explain: "View only for now." }
+        { type: "single", q: "Which CRM change do you own as admin?", options: ["Telephony agent setup for new counsellors", "Editing any lead's fees", "Changing public views"], answer: 0, explain: "Telephony setup is yours (with Dr Jay on the first few). Anything else only with his OK." }
       ]
     }
   ];

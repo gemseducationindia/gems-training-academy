@@ -69,7 +69,7 @@ figcaption{font-size:14px;color:var(--muted);margin-top:6px}
 .chips6 span{background:var(--gold2);color:var(--navy);border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-size:13px;flex:none}
 .journey{margin:10px 0}.journey ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0}
 .journey li{padding:8px 14px;border-radius:999px;font-weight:600;font-size:14px;position:relative}
-.journey.enq li{background:#eef0ff;color:#2b3a9a}.journey.appl li{background:#fbf4e4;color:#7a5a12}
+.journey.enq li{background:#eef0ff;color:#2b3a9a}.journey.appl li{background:#fbf4e4;color:#7a5a12}.journey.fee li{background:var(--okbg);color:var(--ok)}
 .journey li:not(:last-child)::after{content:"→";margin-left:10px;color:var(--muted)}
 .startapp{font-weight:700;color:var(--navy);margin:6px 0 6px 8px}
 .tbl{overflow-x:auto;margin:12px 0}

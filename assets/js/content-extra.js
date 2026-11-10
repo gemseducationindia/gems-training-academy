@@ -150,4 +150,35 @@
 
   const i = C.MODULES.findIndex((m) => m.id === "crm-basics");
   C.MODULES.splice(i + 1, 0, FIND, DETAILS);
+
+  /* Journey (Jay, 10 Nov): Visit Done → fees → discount approval → application (in parallel).
+     So the fees module comes before the application module. */
+  const fi = C.MODULES.findIndex((m) => m.id === "financials");
+  const fin = C.MODULES.splice(fi, 1)[0];
+  fin.title = "After the visit: fees, discount and approval";
+  fin.summary = "After Visit Done, enter the fees, discount amount and reason in the Data tab. The discount goes for approval. Must be 100% right.";
+  fin.lessons.unshift({
+    id: "order",
+    title: "What happens after the visit",
+    intro: "Once the family has visited, money comes next, then the application.",
+    extra: "journey",
+    steps: [
+      "Status is <b>Visit Done</b>.",
+      "Open the <b>Data</b> tab → <b>Fees</b>. Check the fee rows for the right grade.",
+      "Enter the <b>discount amount</b> (or Off %) and pick the <b>discount reason</b>.",
+      "As soon as amount and reason are in, the <b>approval request goes out by itself</b>. The lead shows <b>Awaiting approval</b>.",
+      "You don't need to wait: <b>Start Application</b> and keep moving while the approval happens."
+    ],
+    warn: "A discount with no reason is not saved and never goes for approval.",
+    check: { type: "order", q: "Put these in order.", items: ["Visit Done", "Enter fees, discount amount and reason", "Discount approval", "Start Application"], explain: "Visit Done → fees → discount approval → application. The application can start while approval is pending." }
+  });
+  fin.bank.unshift(
+    { type: "single", q: "When does the discount approval request go out?", options: ["Once the discount amount and reason are entered", "When the family is Enrolled", "When I email Finance"], answer: 0, explain: "Amount + reason entered = approval request goes out." },
+    { type: "single", q: "The discount is Awaiting approval. Can you start the application?", options: ["Yes, in parallel", "No, wait first", "Only after enrolment"], answer: 0, explain: "Approval and application run in parallel." },
+    { type: "order", q: "Put the journey in order.", items: ["Visit Done", "Enter fees, discount amount and reason", "Discount approval", "Start Application"], explain: "Visit Done → fees → discount approval → application." }
+  );
+  const ai = C.MODULES.findIndex((m) => m.id === "application");
+  C.MODULES.splice(ai, 0, fin);
+  const start = C.MODULES[ai + 1].lessons.find((l) => l.id === "start");
+  if (start) start.remember = (start.remember ? start.remember + " " : "") + "Fees and discount come first (previous module); you can start the application while the discount is awaiting approval. Until the ERP link is live, update every application status by hand.";
 })();
