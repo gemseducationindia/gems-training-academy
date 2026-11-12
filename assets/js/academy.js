@@ -21,6 +21,7 @@
       <header class="top">
         <a class="brand" href="#/"><span class="logo">◆</span><span><b>GEMS Training Academy</b><small>Exotel + Admissions CRM</small></span></a>
         <nav class="tabs">
+          <a href="#/journey" class="${active === "journey" ? "on" : ""}">Lead Journey Video</a>
           <a href="#/handbook" class="${active === "handbook" ? "on" : ""}">Admin handbook</a>
           <a href="#/train" class="${active === "train" ? "on" : ""}">Train a counsellor</a>
           <a href="#/quizzes" class="${active === "quizzes" ? "on" : ""}">Quizzes</a>
@@ -40,6 +41,7 @@
         <h1>Learn it. Do it. Teach it.</h1>
         <p>Short, visual, step-by-step training for Exotel calling and the GEMS Admissions CRM. Jump to the topic you need, follow the steps, then check yourself with a quiz.</p>
       </section>
+      <a class="big jcard" href="#/journey"><span class="ic">🎬</span><b>Lead Journey Video</b><span>One family from Visit Done to Enrolled in 4 minutes, recorded on the CRM: fees, approval, application, commitment email, payments. Then the flow to remember.</span><em>Watch first →</em></a>
       <div class="cards3">
         <a class="big" href="#/handbook"><span class="ic">📘</span><b>Admin handbook</b><span>For the Exotel and CRM owner. Add counsellors, groups, flows and numbers; telephony setup; sales flow; fixing common problems.</span><em>${done} of ${total} topics read →</em></a>
         <a class="big" href="#/train"><span class="ic">🖥️</span><b>Train a counsellor</b><span>Share your screen and walk a counsellor through every step: filters, quick views, calls, intent, lead details, statuses, visits, application and fees.</span><em>${MODULES.length} modules →</em></a>
@@ -49,6 +51,40 @@
         <h2>How a call works</h2>
         ${extra("callmap")}
       </section>`);
+  }
+
+  /* ---------- lead journey ---------- */
+  function viewJourney() {
+    const steps = [
+      ["V", "Visit Done", "The family has visited. It is still an enquiry.", "enq"],
+      ["F", "Fees", "Check grade, curriculum, year. Discount + reason on all three fees, in one go.", "fee"],
+      ["A", "Approval", "Principal, then finance. Coimbatore: finance only. Net moves only after both.", "apr"],
+      ["A", "Application", "Start Application. Can run while approval is pending.", "app"],
+      ["E", "Email", "After approval: commitment email with the exact amounts.", "fee"],
+      ["P", "Payments", "MyClassBoard collects. You record each payment by hand.", "pay"],
+      ["E", "Enrolled", "First tuition instalment in. Nets match the email.", "end"]
+    ];
+    page("journey", `
+      <section class="hero small">
+        <h1>Lead Journey: Visit Done to Enrolled</h1>
+        <p>Watch once from start to finish, recorded on the CRM with a test family. Then remember the seven steps below.</p>
+      </section>
+      <figure class="media jvideo"><video controls playsinline preload="metadata" poster="assets/video/lead-journey.jpg" src="assets/video/lead-journey.mp4"></video>
+        <div class="vctl"><button class="btn ghost" data-speed="0.75">Slower</button><button class="btn ghost" data-speed="1">Normal</button><button class="btn ghost" data-act="replay">↺ Replay</button></div></figure>
+      <section class="panel">
+        <p class="k">The flow to remember</p>
+        <h2 class="jmn">Visit · Fees · Approve · Apply · Email · Pay · Enrol</h2>
+        <ol class="jflow">${steps.map(([l, t, s, c], i) => `<li class="${c}"><span class="jl">${i + 1}</span><b>${t}</b><span>${s}</span></li>`).join("")}</ol>
+        <div class="jside">
+          <div class="jbox apr"><p class="k">Who approves a discount</p>
+            <div class="jchain"><span>Counsellor saves discount + reason</span><i>→</i><span>Level 1: Principal</span><i>→</i><span>Level 2: Finance</span><i>→</i><span class="ok">Net comes down</span></div>
+            <p class="small muted">Coimbatore has no principal: it goes straight to finance. A bigger discount later is a fresh approval.</p></div>
+          <div class="jbox pay"><p class="k">Payments until MyClassBoard is linked</p>
+            <div class="jchain"><span>MyClassBoard sends link + form</span><i>→</i><span>Parent pays</span><i>→</i><span>You: status → amount, date, reference → Save</span></div></div>
+          <div class="jbox never"><p class="k">Never</p><ul><li>Add a discount after Start Application</li><li>Leave a discount without a reason</li><li>Send the commitment email before approval</li><li>Use Microsoft Forms</li></ul></div>
+        </div>
+      </section>
+      <p class="center"><a class="btn" href="#/train/financials/0">Go through it step by step →</a></p>`);
   }
 
   /* ---------- extras (diagrams, tables, templates) ---------- */
@@ -316,6 +352,7 @@
 
   function route() {
     const p = location.hash.replace(/^#\/?/, "").split("/");
+    if (p[0] === "journey") return viewJourney();
     if (p[0] === "handbook") return viewHandbook(p[1], p[2]);
     if (p[0] === "train" && p[1]) return viewTrain(p[1], p[2]);
     if (p[0] === "train") return viewTrainList();
