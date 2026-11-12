@@ -6,26 +6,28 @@
 <title>CRM Admissions Flowchart</title>
 <meta name="description" content="How an enquiry moves through the GEMS admissions CRM, with the discount approval steps for principals.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2a5c'/%3E%3Cpath d='M32 12l16 9v22l-16 9-16-9V21z' fill='none' stroke='%23d9c08a' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#1b2a5c;--ink:#1a2238;--muted:#4a5578}
 *{box-sizing:border-box}
 body{margin:0;background:#fff;color:var(--ink);font-family:Inter,Arial,sans-serif}
-.wrap{max-width:1500px;margin:0 auto;padding:20px 16px 28px}
-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:3px solid var(--navy);padding-bottom:10px;margin-bottom:14px;flex-wrap:wrap}
-h1{margin:0;font-size:26px;color:var(--navy);letter-spacing:-.01em}
+.wrap{max-width:1600px;margin:0 auto;padding:14px 16px 16px}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:3px solid var(--navy);padding-bottom:8px;margin-bottom:10px;flex-wrap:wrap}
+h1{margin:0;font-size:22px;color:var(--navy);letter-spacing:-.01em}
 .sub{margin:4px 0 0;color:var(--muted);font-size:14px}
 .rule{background:#fff4e0;border:2px solid #c2620a;color:#8a3b00;border-radius:8px;padding:8px 14px;font-weight:700;font-size:14px;max-width:560px}
 .chart{overflow-x:auto}
-.chart svg{display:block;width:100%;min-width:960px;height:auto}
-.legend{display:flex;gap:22px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:13px;color:var(--muted)}
+.chart svg{display:block;width:auto;max-width:100%;height:calc(100vh - 150px);min-height:600px;margin:0 auto}
+@media (max-width:900px){.chart svg{height:auto;width:100%;min-width:900px;max-width:none}}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:8px}.legend{display:flex;gap:18px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:8px}
-.actions{margin-top:10px;font-size:13px}
+.actions{font-size:13px}
 .actions button{font:inherit;font-weight:600;background:var(--navy);color:#fff;border:0;border-radius:6px;padding:8px 14px;cursor:pointer}
 .actions a{color:var(--navy);margin-left:12px}
-@page{size:A4 landscape;margin:8mm}
-@media print{.wrap{padding:0;max-width:none}.actions{display:none}.chart{overflow:visible}.chart svg{min-width:0;width:auto;height:150mm;margin:0 auto}h1{font-size:20px}header{margin-bottom:6px;padding-bottom:6px}.legend{margin-top:2px;font-size:10px}.sub{font-size:11px}.rule{font-size:11px;padding:5px 10px}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+@page{size:A4 landscape;margin:10mm 12mm}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.wrap{padding:0;max-width:none}.actions{display:none}header{flex-wrap:nowrap;align-items:center;margin-bottom:5mm;padding-bottom:3mm;border-bottom-width:2px}h1{font-size:15pt;white-space:nowrap}.sub{font-size:10pt}.rule{font-size:9pt;padding:2mm 3mm;max-width:100mm}.chart{overflow:visible}.chart svg{min-width:0;min-height:0;max-width:100%;width:auto;height:152mm;margin:0 auto}.foot{justify-content:center;margin-top:3mm}.legend{justify-content:center;margin-top:3mm;font-size:9pt;gap:6mm}}
 </style>
 </head>
 <body>
@@ -44,33 +46,33 @@ h1{margin:0;font-size:26px;color:var(--navy);letter-spacing:-.01em}
 <rect x="6" y="20" width="468" height="1010" rx="10" fill="#fff" stroke="#c9d1e6" stroke-width="1.5"/>
 <rect x="6" y="20" width="468" height="46" rx="10" fill="#1b2a5c"/>
 <rect x="6" y="50" width="468" height="16" fill="#1b2a5c"/>
-<text x="240.0" y="48.2" text-anchor="middle" font-size="15" fill="#fff"><tspan x="240.0" dy="0.0" font-weight="700" font-size="15" fill="#fff">STAGE 1  ·  Enquiry: central desk to campus</tspan></text>
+<text x="240.0" y="48.8" text-anchor="middle" font-size="16.5" fill="#fff"><tspan x="240.0" dy="0.0" font-weight="700" font-size="16.5" fill="#fff">STAGE 1  ·  Enquiry: central desk to campus</tspan></text>
 <rect x="486" y="20" width="578" height="1010" rx="10" fill="#f3f5fb" stroke="#c9d1e6" stroke-width="1.5"/>
 <rect x="486" y="20" width="578" height="46" rx="10" fill="#1b2a5c"/>
 <rect x="486" y="50" width="578" height="16" fill="#1b2a5c"/>
-<text x="775.0" y="48.2" text-anchor="middle" font-size="15" fill="#fff"><tspan x="775.0" dy="0.0" font-weight="700" font-size="15" fill="#fff">STAGE 2  ·  Discount approval</tspan></text>
+<text x="775.0" y="48.8" text-anchor="middle" font-size="16.5" fill="#fff"><tspan x="775.0" dy="0.0" font-weight="700" font-size="16.5" fill="#fff">STAGE 2  ·  Discount approval</tspan></text>
 <rect x="1076" y="20" width="418" height="1010" rx="10" fill="#fff" stroke="#c9d1e6" stroke-width="1.5"/>
 <rect x="1076" y="20" width="418" height="46" rx="10" fill="#1b2a5c"/>
 <rect x="1076" y="50" width="418" height="16" fill="#1b2a5c"/>
-<text x="1285.0" y="48.2" text-anchor="middle" font-size="15" fill="#fff"><tspan x="1285.0" dy="0.0" font-weight="700" font-size="15" fill="#fff">STAGE 3  ·  Application to enrolment</tspan></text>
+<text x="1285.0" y="48.8" text-anchor="middle" font-size="16.5" fill="#fff"><tspan x="1285.0" dy="0.0" font-weight="700" font-size="16.5" fill="#fff">STAGE 3  ·  Application to enrolment</tspan></text>
 <rect x="60.0" y="96.0" width="260" height="58" rx="29.0" fill="#1b2a5c" stroke="#1b2a5c" stroke-width="2"/>
-<text x="190" y="120.5" text-anchor="middle" font-size="15" fill="#fff"><tspan x="190" dy="0.0" font-weight="700" font-size="15" fill="#fff">New enquiry</tspan><tspan x="190" dy="19.5" font-weight="500" font-size="12.5" fill="#fff">Meta · Google · Website · QR code</tspan></text>
-<rect x="55.0" y="193.0" width="270" height="64" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="190" y="220.8" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="600" font-size="14" fill="#1a2238">Central counsellors call and qualify</tspan><tspan x="190" dy="18.2" font-weight="500" font-size="12.5" fill="#4a5578">Ritu · Arya · Minakshi</tspan></text>
+<text x="190" y="120.5" text-anchor="middle" font-size="16.5" fill="#fff"><tspan x="190" dy="0.0" font-weight="700" font-size="16.5" fill="#fff">New enquiry</tspan><tspan x="190" dy="20.6" font-weight="500" font-size="13.750000000000002" fill="#fff">Meta · Google · Website · QR code</tspan></text>
+<rect x="40.0" y="193.0" width="300" height="64" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
+<text x="190" y="220.8" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="600" font-size="15.400000000000002" fill="#1a2238">Central counsellors call and qualify</tspan><tspan x="190" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#4a5578">Ritu · Arya · Minakshi</tspan></text>
 <polygon points="190,293.0 300.0,345 190,397.0 80.0,345" fill="#e6ebf7" stroke="#1b2a5c" stroke-width="2"/>
-<text x="190" y="340.8" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="600" font-size="14" fill="#1a2238">Interested</tspan><tspan x="190" dy="18.2" font-weight="600" font-size="14" fill="#1a2238">and eligible?</tspan></text>
+<text x="190" y="340.8" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="600" font-size="15.400000000000002" fill="#1a2238">Interested</tspan><tspan x="190" dy="19.3" font-weight="600" font-size="15.400000000000002" fill="#1a2238">and eligible?</tspan></text>
 <rect x="345.0" y="321.0" width="120" height="48" rx="24.0" fill="#eef0f4" stroke="#1b2a5c" stroke-width="2"/>
-<text x="405" y="340.5" text-anchor="middle" font-size="15" fill="#3b4256"><tspan x="405" dy="0.0" font-weight="600" font-size="13" fill="#3b4256">Closed as</tspan><tspan x="405" dy="19.5" font-weight="700" font-size="13" fill="#3b4256">Lost / Junk</tspan></text>
-<rect x="55.0" y="433.0" width="270" height="64" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="190" y="460.8" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="600" font-size="14" fill="#1a2238">Handed to campus team</tspan><tspan x="190" dy="18.2" font-weight="500" font-size="12.5" fill="#4a5578">round robin to a school counsellor</tspan></text>
-<rect x="55.0" y="538.0" width="270" height="64" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="190" y="565.8" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="600" font-size="14" fill="#1a2238">Campus team books and</tspan><tspan x="190" dy="18.2" font-weight="600" font-size="14" fill="#1a2238">holds the campus visit</tspan></text>
-<rect x="55.0" y="645.0" width="270" height="54" rx="6" fill="#e6ebf7" stroke="#1b2a5c" stroke-width="2"/>
-<text x="190" y="676.9" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="700" font-size="14" fill="#1a2238">Status: Visit Done</tspan></text>
-<rect x="55.0" y="746.0" width="270" height="72" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="190" y="768.7" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="600" font-size="14" fill="#1a2238">Counsellor selects grade and</tspan><tspan x="190" dy="18.2" font-weight="600" font-size="14" fill="#1a2238">board; the fee grid loads</tspan><tspan x="190" dy="18.2" font-weight="500" font-size="12.5" fill="#4a5578">in the CRM (enquiry stage)</tspan></text>
+<text x="405" y="340.5" text-anchor="middle" font-size="16.5" fill="#3b4256"><tspan x="405" dy="0.0" font-weight="600" font-size="14.3" fill="#3b4256">Closed as</tspan><tspan x="405" dy="20.6" font-weight="700" font-size="14.3" fill="#3b4256">Lost / Junk</tspan></text>
+<rect x="40.0" y="433.0" width="300" height="64" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
+<text x="190" y="460.8" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="600" font-size="15.400000000000002" fill="#1a2238">Handed to campus team</tspan><tspan x="190" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#4a5578">round robin to a school counsellor</tspan></text>
+<rect x="40.0" y="538.0" width="300" height="64" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
+<text x="190" y="565.8" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="600" font-size="15.400000000000002" fill="#1a2238">Campus team books and</tspan><tspan x="190" dy="19.3" font-weight="600" font-size="15.400000000000002" fill="#1a2238">holds the campus visit</tspan></text>
+<rect x="40.0" y="645.0" width="300" height="54" rx="6" fill="#e6ebf7" stroke="#1b2a5c" stroke-width="2"/>
+<text x="190" y="677.4" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Status: Visit Done</tspan></text>
+<rect x="40.0" y="746.0" width="300" height="72" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
+<text x="190" y="768.1" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="600" font-size="15.400000000000002" fill="#1a2238">Counsellor selects grade and</tspan><tspan x="190" dy="19.3" font-weight="600" font-size="15.400000000000002" fill="#1a2238">board; the fee grid loads</tspan><tspan x="190" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#4a5578">in the CRM (enquiry stage)</tspan></text>
 <circle cx="190" cy="905" r="19" fill="#fff" stroke="#1b2a5c" stroke-width="2.5"/>
-<text x="190" y="911.0" text-anchor="middle" font-size="17" fill="#1b2a5c"><tspan x="190" dy="0.0" font-weight="800" font-size="17" fill="#1b2a5c">A</tspan></text>
+<text x="190" y="911.5" text-anchor="middle" font-size="18.700000000000003" fill="#1b2a5c"><tspan x="190" dy="0.0" font-weight="800" font-size="18.700000000000003" fill="#1b2a5c">A</tspan></text>
 <polyline points="190,154 190,193" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <polyline points="190,257 190,293" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <polyline points="300,345 345,345" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
@@ -81,83 +83,83 @@ h1{margin:0;font-size:26px;color:var(--navy);letter-spacing:-.01em}
 <polyline points="190,602 190,645" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <polyline points="190,699 190,746" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <polyline points="190,818 190,886" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
-<text x="190" y="964.9" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="500" font-size="12" fill="#4a5578">continues at A in Stage 2</tspan></text>
+<text x="190" y="965.4" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="190" dy="0.0" font-weight="500" font-size="13.200000000000001" fill="#4a5578">continues at A in Stage 2</tspan></text>
 <circle cx="650" cy="105" r="19" fill="#fff" stroke="#1b2a5c" stroke-width="2.5"/>
-<text x="650" y="111.0" text-anchor="middle" font-size="17" fill="#1b2a5c"><tspan x="650" dy="0.0" font-weight="800" font-size="17" fill="#1b2a5c">A</tspan></text>
+<text x="650" y="111.5" text-anchor="middle" font-size="18.700000000000003" fill="#1b2a5c"><tspan x="650" dy="0.0" font-weight="800" font-size="18.700000000000003" fill="#1b2a5c">A</tspan></text>
 <polygon points="650,153.0 765.0,205 650,257.0 535.0,205" fill="#e6ebf7" stroke="#1b2a5c" stroke-width="2"/>
-<text x="650" y="200.8" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="600" font-size="14" fill="#1a2238">Any discount to</tspan><tspan x="650" dy="18.2" font-weight="600" font-size="14" fill="#1a2238">be offered?</tspan></text>
-<rect x="820.0" y="173.0" width="210" height="64" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="925" y="200.8" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="925" dy="0.0" font-weight="600" font-size="14" fill="#1a2238">No approval needed</tspan><tspan x="925" dy="18.2" font-weight="500" font-size="12.5" fill="#4a5578">go straight to Stage 3</tspan></text>
+<text x="650" y="200.8" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="600" font-size="15.400000000000002" fill="#1a2238">Any discount to</tspan><tspan x="650" dy="19.3" font-weight="600" font-size="15.400000000000002" fill="#1a2238">be offered?</tspan></text>
+<rect x="810.0" y="173.0" width="230" height="64" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
+<text x="925" y="200.8" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="925" dy="0.0" font-weight="600" font-size="15.400000000000002" fill="#1a2238">No approval needed</tspan><tspan x="925" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#4a5578">go straight to Stage 3</tspan></text>
 <circle cx="925" cy="300" r="19" fill="#fff" stroke="#1b2a5c" stroke-width="2.5"/>
-<text x="925" y="305.9" text-anchor="middle" font-size="17" fill="#1b2a5c"><tspan x="925" dy="0.0" font-weight="800" font-size="17" fill="#1b2a5c">B</tspan></text>
-<polyline points="765,205 820,205" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
-<text x="790" y="197" font-size="13" font-weight="700" fill="#1b2a5c" text-anchor="middle">No</text>
+<text x="925" y="306.5" text-anchor="middle" font-size="18.700000000000003" fill="#1b2a5c"><tspan x="925" dy="0.0" font-weight="800" font-size="18.700000000000003" fill="#1b2a5c">B</tspan></text>
+<polyline points="765,205 810,205" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
+<text x="786" y="196" font-size="13" font-weight="700" fill="#1b2a5c" text-anchor="middle">No</text>
 <polyline points="925,237 925,281" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
-<rect x="500.0" y="297.0" width="300" height="96" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="650" y="322.6" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="700" font-size="14" fill="#1a2238">Counsellor enters the discount</tspan><tspan x="650" dy="18.2" font-weight="500" font-size="14" fill="#1a2238">on Application, Blocking and</tspan><tspan x="650" dy="18.2" font-weight="500" font-size="14" fill="#1a2238">Tuition fee: amount + reason</tspan><tspan x="650" dy="18.2" font-weight="500" font-size="14" fill="#1a2238">for each, then Saves</tspan></text>
+<rect x="495.0" y="297.0" width="310" height="96" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
+<text x="650" y="321.5" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Counsellor enters the discount</tspan><tspan x="650" dy="19.3" font-weight="500" font-size="15.400000000000002" fill="#1a2238">on Application Fee, Admission</tspan><tspan x="650" dy="19.3" font-weight="500" font-size="15.400000000000002" fill="#1a2238">Blocking Fee and Tuition Fee:</tspan><tspan x="650" dy="19.3" font-weight="500" font-size="15.400000000000002" fill="#1a2238">amount + reason for each, then Saves</tspan></text>
 <polyline points="650,124 650,153" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <polyline points="650,257 650,297" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <text x="672" y="285" font-size="13" font-weight="700" fill="#1b2a5c" text-anchor="middle">Yes</text>
 <rect x="500.0" y="433.0" width="300" height="74" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="650" y="456.7" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="700" font-size="14" fill="#1a2238">Approval request goes</tspan><tspan x="650" dy="18.2" font-weight="700" font-size="14" fill="#1a2238">automatically to approvers</tspan><tspan x="650" dy="18.2" font-weight="500" font-size="12.5" fill="#4a5578">in the CRM</tspan></text>
+<text x="650" y="456.1" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Approval request goes</tspan><tspan x="650" dy="19.3" font-weight="700" font-size="15.400000000000002" fill="#1a2238">automatically to approvers</tspan><tspan x="650" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#4a5578">in the CRM</tspan></text>
 <polyline points="650,393 650,433" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <rect x="500.0" y="531.0" width="300" height="52" rx="6" fill="#fff4e0" stroke="#c2620a" stroke-width="2" stroke-dasharray="6 4"/>
-<text x="650" y="552.8" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="800" font-size="13.5" fill="#8a3b00">⚠  Do NOT confirm the discount</tspan><tspan x="650" dy="18.2" font-weight="700" font-size="13" fill="#8a3b00">to the parent until it is approved</tspan></text>
+<text x="650" y="552.8" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="800" font-size="14.850000000000001" fill="#8a3b00">⚠  Do NOT confirm the discount</tspan><tspan x="650" dy="19.3" font-weight="700" font-size="14.3" fill="#8a3b00">to the parent until it is approved</tspan></text>
 <polygon points="650,610.0 770.0,665 650,720.0 530.0,665" fill="#e6ebf7" stroke="#1b2a5c" stroke-width="2"/>
-<text x="650" y="651.7" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="800" font-size="13" fill="#1b2a5c">Level 1 *</tspan><tspan x="650" dy="18.2" font-weight="700" font-size="14" fill="#1a2238">Principal</tspan><tspan x="650" dy="18.2" font-weight="700" font-size="14" fill="#1a2238">approves?</tspan></text>
+<text x="650" y="651.1" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="800" font-size="14.3" fill="#1b2a5c">Level 1 *</tspan><tspan x="650" dy="19.3" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Principal</tspan><tspan x="650" dy="19.3" font-weight="700" font-size="15.400000000000002" fill="#1a2238">approves?</tspan></text>
 <polyline points="650,507 650,531" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <polyline points="650,583 650,610" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <polygon points="650,745.0 770.0,800 650,855.0 530.0,800" fill="#e6ebf7" stroke="#1b2a5c" stroke-width="2"/>
-<text x="650" y="786.7" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="800" font-size="13" fill="#1b2a5c">Level 2</tspan><tspan x="650" dy="18.2" font-weight="700" font-size="14" fill="#1a2238">Finance</tspan><tspan x="650" dy="18.2" font-weight="700" font-size="14" fill="#1a2238">approves?</tspan></text>
+<text x="650" y="786.1" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="800" font-size="14.3" fill="#1b2a5c">Level 2</tspan><tspan x="650" dy="19.3" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Finance</tspan><tspan x="650" dy="19.3" font-weight="700" font-size="15.400000000000002" fill="#1a2238">approves?</tspan></text>
 <polyline points="650,720 650,745" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <text x="672" y="738" font-size="13" font-weight="700" fill="#1b2a5c" text-anchor="middle">Yes</text>
 <rect x="500.0" y="883.0" width="300" height="64" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="650" y="910.8" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="700" font-size="14" fill="#1a2238">Commitment email to the parent</tspan><tspan x="650" dy="18.2" font-weight="500" font-size="12.5" fill="#4a5578">from the CRM, exact approved amounts</tspan></text>
+<text x="650" y="910.8" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="650" dy="0.0" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Commitment email to the parent</tspan><tspan x="650" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#4a5578">from the CRM, exact approved amounts</tspan></text>
 <polyline points="650,855 650,883" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <text x="672" y="875" font-size="13" font-weight="700" fill="#1b2a5c" text-anchor="middle">Yes</text>
 <circle cx="650" cy="995" r="19" fill="#fff" stroke="#1b2a5c" stroke-width="2.5"/>
-<text x="650" y="1001.0" text-anchor="middle" font-size="17" fill="#1b2a5c"><tspan x="650" dy="0.0" font-weight="800" font-size="17" fill="#1b2a5c">B</tspan></text>
+<text x="650" y="1001.5" text-anchor="middle" font-size="18.700000000000003" fill="#1b2a5c"><tspan x="650" dy="0.0" font-weight="800" font-size="18.700000000000003" fill="#1b2a5c">B</tspan></text>
 <polyline points="650,947 650,976" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
-<rect x="820.0" y="633.0" width="210" height="64" rx="6" fill="#fdecec" stroke="#9b1c1c" stroke-width="2"/>
-<text x="925" y="660.8" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="925" dy="0.0" font-weight="800" font-size="15" fill="#9b1c1c">Rejected</tspan><tspan x="925" dy="18.2" font-weight="500" font-size="12.5" fill="#5b2020">counsellor sees reason in CRM</tspan></text>
-<polyline points="770,665 820,665" fill="none" stroke="#9b1c1c" stroke-width="2" marker-end="url(#arrR)"/>
-<text x="798" y="657" font-size="13" font-weight="700" fill="#9b1c1c" text-anchor="middle">No</text>
+<rect x="807.0" y="633.0" width="236" height="64" rx="6" fill="#fdecec" stroke="#9b1c1c" stroke-width="2"/>
+<text x="925" y="660.8" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="925" dy="0.0" font-weight="800" font-size="16.5" fill="#9b1c1c">Rejected</tspan><tspan x="925" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#5b2020">counsellor sees reason in CRM</tspan></text>
+<polyline points="770,665 807,665" fill="none" stroke="#9b1c1c" stroke-width="2" marker-end="url(#arrR)"/>
+<text x="790" y="656" font-size="13" font-weight="700" fill="#9b1c1c" text-anchor="middle">No</text>
 <polyline points="770,800 925,800 925,697" fill="none" stroke="#9b1c1c" stroke-width="2" marker-end="url(#arrR)"/>
-<text x="798" y="792" font-size="13" font-weight="700" fill="#9b1c1c" text-anchor="middle">No</text>
-<rect x="820.0" y="452.0" width="210" height="96" rx="6" fill="#fff" stroke="#9b1c1c" stroke-width="2"/>
-<text x="925" y="477.6" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="925" dy="0.0" font-weight="700" font-size="14" fill="#1a2238">Counsellor discusses</tspan><tspan x="925" dy="18.2" font-weight="500" font-size="14" fill="#1a2238">with parent: revise</tspan><tspan x="925" dy="18.2" font-weight="500" font-size="14" fill="#1a2238">the discount or offer</tspan><tspan x="925" dy="18.2" font-weight="500" font-size="14" fill="#1a2238">the full fee</tspan></text>
+<text x="790" y="791" font-size="13" font-weight="700" fill="#9b1c1c" text-anchor="middle">No</text>
+<rect x="810.0" y="452.0" width="230" height="96" rx="6" fill="#fff" stroke="#9b1c1c" stroke-width="2"/>
+<text x="925" y="476.5" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="925" dy="0.0" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Counsellor discusses</tspan><tspan x="925" dy="19.3" font-weight="500" font-size="15.400000000000002" fill="#1a2238">with parent: revise</tspan><tspan x="925" dy="19.3" font-weight="500" font-size="15.400000000000002" fill="#1a2238">the discount or offer</tspan><tspan x="925" dy="19.3" font-weight="500" font-size="15.400000000000002" fill="#1a2238">the full fee</tspan></text>
 <polyline points="925,633 925,548" fill="none" stroke="#9b1c1c" stroke-width="2" marker-end="url(#arrR)"/>
 <polyline points="925,452 925,345 800,345" fill="none" stroke="#9b1c1c" stroke-width="2" marker-end="url(#arrR)"/>
 <text x="867" y="337" font-size="13" font-weight="700" fill="#9b1c1c" text-anchor="middle">resubmit</text>
 <circle cx="1285" cy="105" r="19" fill="#fff" stroke="#1b2a5c" stroke-width="2.5"/>
-<text x="1285" y="111.0" text-anchor="middle" font-size="17" fill="#1b2a5c"><tspan x="1285" dy="0.0" font-weight="800" font-size="17" fill="#1b2a5c">B</tspan></text>
+<text x="1285" y="111.5" text-anchor="middle" font-size="18.700000000000003" fill="#1b2a5c"><tspan x="1285" dy="0.0" font-weight="800" font-size="18.700000000000003" fill="#1b2a5c">B</tspan></text>
 <rect x="1120.0" y="167.0" width="330" height="96" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="1285" y="192.6" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="1285" dy="0.0" font-weight="700" font-size="14" fill="#1a2238">Application stage</tspan><tspan x="1285" dy="18.2" font-weight="500" font-size="12.5" fill="#1a2238">Application fee: payment link sent</tspan><tspan x="1285" dy="18.2" font-weight="500" font-size="12.5" fill="#1a2238">via MyClassBoard; payment status</tspan><tspan x="1285" dy="18.2" font-weight="500" font-size="12.5" fill="#1a2238">updated by hand in the CRM</tspan></text>
+<text x="1285" y="191.5" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="1285" dy="0.0" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Application stage</tspan><tspan x="1285" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#1a2238">Application fee: payment link sent</tspan><tspan x="1285" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#1a2238">via MyClassBoard; payment status</tspan><tspan x="1285" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#1a2238">updated by hand in the CRM</tspan></text>
 <polyline points="1285,124 1285,167" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <rect x="1120.0" y="309.0" width="330" height="52" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="1285" y="339.9" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="1285" dy="0.0" font-weight="700" font-size="14" fill="#1a2238">Documents submitted</tspan></text>
+<text x="1285" y="340.4" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="1285" dy="0.0" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Documents submitted</tspan></text>
 <rect x="1120.0" y="399.0" width="330" height="52" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="1285" y="429.9" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="1285" dy="0.0" font-weight="700" font-size="14" fill="#1a2238">Offer letter issued</tspan></text>
+<text x="1285" y="430.4" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="1285" dy="0.0" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Offer letter issued</tspan></text>
 <rect x="1120.0" y="490.0" width="330" height="70" rx="6" fill="#fff" stroke="#1b2a5c" stroke-width="2"/>
-<text x="1285" y="511.7" text-anchor="middle" font-size="14" fill="#1a2238"><tspan x="1285" dy="0.0" font-weight="700" font-size="14" fill="#1a2238">Blocking fee paid</tspan><tspan x="1285" dy="18.2" font-weight="500" font-size="12.5" fill="#1a2238">via MyClassBoard; status updated by</tspan><tspan x="1285" dy="18.2" font-weight="500" font-size="12.5" fill="#1a2238">hand in the CRM</tspan></text>
+<text x="1285" y="511.1" text-anchor="middle" font-size="15.400000000000002" fill="#1a2238"><tspan x="1285" dy="0.0" font-weight="700" font-size="15.400000000000002" fill="#1a2238">Admission Blocking Fee paid</tspan><tspan x="1285" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#1a2238">via MyClassBoard; status updated by</tspan><tspan x="1285" dy="19.3" font-weight="500" font-size="13.750000000000002" fill="#1a2238">hand in the CRM</tspan></text>
 <rect x="1175.0" y="606.0" width="220" height="58" rx="29.0" fill="#1b2a5c" stroke="#1b2a5c" stroke-width="2"/>
-<text x="1285" y="640.2" text-anchor="middle" font-size="15" fill="#fff"><tspan x="1285" dy="0.0" font-weight="800" font-size="17" fill="#fff">Enrolled</tspan></text>
+<text x="1285" y="640.8" text-anchor="middle" font-size="16.5" fill="#fff"><tspan x="1285" dy="0.0" font-weight="800" font-size="18.700000000000003" fill="#fff">Enrolled</tspan></text>
 <polyline points="1285,263 1285,309" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <polyline points="1285,361 1285,399" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <polyline points="1285,451 1285,490" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <polyline points="1285,560 1285,606" fill="none" stroke="#1b2a5c" stroke-width="2" marker-end="url(#arr)"/>
 <rect x="1110.0" y="720.0" width="350" height="160" rx="6" fill="#fff" stroke="#8e9ac0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="1285" y="755.6" text-anchor="middle" font-size="12.5" fill="#1a2238"><tspan x="1285" dy="0.0" font-weight="800" font-size="14" fill="#1b2a5c">Good to know</tspan><tspan x="1285" dy="16.2" font-weight="500" font-size="12.5" fill="#1a2238">• Fees quoted to the parent are final only</tspan><tspan x="1285" dy="16.2" font-weight="500" font-size="12.5" fill="#1a2238">   after the commitment email goes out.</tspan><tspan x="1285" dy="16.2" font-weight="500" font-size="12.5" fill="#1a2238">• Payment statuses are updated by hand</tspan><tspan x="1285" dy="16.2" font-weight="500" font-size="12.5" fill="#1a2238">   until MyClassBoard is linked to the CRM.</tspan><tspan x="1285" dy="16.2" font-weight="500" font-size="12.5" fill="#1a2238">* Coimbatore has no principal, so requests</tspan><tspan x="1285" dy="16.2" font-weight="500" font-size="12.5" fill="#1a2238">   go straight to Finance (Level 2).</tspan></text>
+<text x="1285" y="753.2" text-anchor="middle" font-size="13.750000000000002" fill="#1a2238"><tspan x="1285" dy="0.0" font-weight="800" font-size="15.400000000000002" fill="#1b2a5c">Good to know</tspan><tspan x="1285" dy="17.2" font-weight="500" font-size="13.750000000000002" fill="#1a2238">• Fees quoted to the parent are final only</tspan><tspan x="1285" dy="17.2" font-weight="500" font-size="13.750000000000002" fill="#1a2238">   after the commitment email goes out.</tspan><tspan x="1285" dy="17.2" font-weight="500" font-size="13.750000000000002" fill="#1a2238">• Payment statuses are updated by hand</tspan><tspan x="1285" dy="17.2" font-weight="500" font-size="13.750000000000002" fill="#1a2238">   until MyClassBoard is linked to the CRM.</tspan><tspan x="1285" dy="17.2" font-weight="500" font-size="13.750000000000002" fill="#1a2238">* Coimbatore has no principal, so requests</tspan><tspan x="1285" dy="17.2" font-weight="500" font-size="13.750000000000002" fill="#1a2238">   go straight to Finance (Level 2).</tspan></text>
 </svg>
 </div>
-<div class="legend">
+<div class="foot"><div class="legend">
   <span><svg width="44" height="20"><rect x="1" y="1" width="42" height="18" rx="9" fill="#1b2a5c"/></svg>Start / end</span>
   <span><svg width="44" height="20"><rect x="1" y="1" width="42" height="18" rx="3" fill="#fff" stroke="#1b2a5c" stroke-width="2"/></svg>Step</span>
   <span><svg width="30" height="22"><polygon points="15,1 29,11 15,21 1,11" fill="#e6ebf7" stroke="#1b2a5c" stroke-width="2"/></svg>Decision</span>
   <span><svg width="22" height="22"><circle cx="11" cy="11" r="9" fill="#fff" stroke="#1b2a5c" stroke-width="2"/></svg>Continues at the same letter</span>
   <span><svg width="44" height="20"><line x1="2" y1="10" x2="42" y2="10" stroke="#9b1c1c" stroke-width="2.5"/></svg>Discount rejected path</span>
 </div>
-<div class="actions"><button onclick="window.print()">Print or save as PDF</button></div>
+<div class="actions"><button onclick="window.print()">Print or save as PDF</button></div></div>
 </div>
 </body>
 </html>
