@@ -41,7 +41,7 @@
         <h1>Learn it. Do it. Teach it.</h1>
         <p>Short, visual, step-by-step training for Exotel calling and the GEMS Admissions CRM. Jump to the topic you need, follow the steps, then check yourself with a quiz.</p>
       </section>
-      <a class="big jcard" href="#/journey"><span class="ic">🎬</span><b>Lead Journey Video</b><span>One family from Visit Done to Enrolled in 4 minutes, recorded on the CRM: fees, approval, application, commitment email, payments. Then the flow to remember.</span><em>Watch first →</em></a>
+      <a class="big jcard" href="#/journey"><span class="ic">🎬</span><b>Lead Journey Video</b><span>One family from Visit Scheduled to Enrolled in about 7 minutes, explained slowly in full sentences and recorded on the CRM: fees, approval, application, commitment email, payments. Then the flow to remember.</span><em>Watch first →</em></a>
       <div class="cards3">
         <a class="big" href="#/handbook"><span class="ic">📘</span><b>Admin handbook</b><span>For the Exotel and CRM owner. Add counsellors, groups, flows and numbers; telephony setup; sales flow; fixing common problems.</span><em>${done} of ${total} topics read →</em></a>
         <a class="big" href="#/train"><span class="ic">🖥️</span><b>Train a counsellor</b><span>Share your screen and walk a counsellor through every step: filters, quick views, calls, intent, lead details, statuses, visits, application and fees.</span><em>${MODULES.length} modules →</em></a>
@@ -56,24 +56,25 @@
   /* ---------- lead journey ---------- */
   function viewJourney() {
     const steps = [
-      ["V", "Visit Done", "The family has visited. It is still an enquiry.", "enq"],
-      ["F", "Fees", "Check grade, curriculum, year. Discount + reason on all three fees, in one go.", "fee"],
-      ["A", "Approval", "Principal, then finance. Coimbatore: finance only. Net moves only after both.", "apr"],
-      ["A", "Application", "Start Application. Can run while approval is pending.", "app"],
-      ["E", "Email", "After approval: commitment email with the exact amounts.", "fee"],
-      ["P", "Payments", "MyClassBoard collects. You record each payment by hand.", "pay"],
-      ["E", "Enrolled", "First tuition instalment in. Nets match the email.", "end"]
+      ["V", "Visit", "The visit is booked, so the status says Visit Scheduled. After the family visits, change it to Visit Done.", "enq"],
+      ["C", "Check", "Check that the child's grade, curriculum and academic year are correct.", "enq"],
+      ["F", "Fees", "On the Data tab, enter the discount and the reason for all three fees, in one go.", "fee"],
+      ["A", "Approve", "The discount goes to the principal first, and then to finance. Coimbatore goes straight to finance.", "apr"],
+      ["A", "Apply", "Click Start Application. You do not need to wait for the approval.", "app"],
+      ["E", "Email", "After both approvals, send the commitment email with the exact amounts.", "fee"],
+      ["P", "Pay", "MyClassBoard collects the money. You record each payment in the CRM by hand.", "pay"],
+      ["E", "Enrol", "When the first tuition payment comes in, change the status to Enrolled.", "end"]
     ];
     page("journey", `
       <section class="hero small">
-        <h1>Lead Journey: Visit Done to Enrolled</h1>
-        <p>Watch once from start to finish, recorded on the CRM with a test family. Then remember the seven steps below.</p>
+        <h1>Lead Journey: Visit Scheduled to Enrolled</h1>
+        <p>Watch once from start to finish, recorded on the CRM with a test family. It goes slowly and explains every step in full sentences. Then remember the eight steps below.</p>
       </section>
-      <figure class="media jvideo"><video controls playsinline preload="metadata" poster="assets/video/lead-journey.jpg" src="assets/video/lead-journey.mp4"></video>
+      <figure class="media jvideo"><video controls playsinline preload="metadata" poster="assets/video/lead-journey.jpg?v=2" src="assets/video/lead-journey.mp4?v=2"></video>
         <div class="vctl"><button class="btn ghost" data-speed="0.75">Slower</button><button class="btn ghost" data-speed="1">Normal</button><button class="btn ghost" data-act="replay">↺ Replay</button></div></figure>
       <section class="panel">
         <p class="k">The flow to remember</p>
-        <h2 class="jmn">Visit · Fees · Approve · Apply · Email · Pay · Enrol</h2>
+        <h2 class="jmn">Visit · Check · Fees · Approve · Apply · Email · Pay · Enrol</h2>
         <ol class="jflow">${steps.map(([l, t, s, c], i) => `<li class="${c}"><span class="jl">${i + 1}</span><b>${t}</b><span>${s}</span></li>`).join("")}</ol>
         <div class="jside">
           <div class="jbox apr"><p class="k">Who approves a discount</p>

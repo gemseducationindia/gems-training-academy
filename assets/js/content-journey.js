@@ -28,7 +28,7 @@
   const order = lesson(fin, "order");
   Object.assign(order, {
     title: "What happens after the visit",
-    intro: "Watch the whole journey once: one family from Visit Done to Enrolled. The same film is in the Lead Journey Video tab.",
+    intro: "Watch the whole journey once: one family from Visit Scheduled to Enrolled, explained slowly in full sentences. The same film is in the Lead Journey Video tab.",
     video: "lead-journey",
     steps: [
       "Status is <b>Visit Done</b>. The lead is still an <b>enquiry</b>. This is when the money is agreed.",
