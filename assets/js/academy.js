@@ -14,17 +14,21 @@
     set(k, v) { try { localStorage.setItem("gta:" + k, JSON.stringify(v)); } catch (e) {} }
   };
   const go = (h) => { location.hash = h; };
+  /* Counsellor-only mode (counsellor.html): just the counsellor training and its quizzes. */
+  const CO = window.GTA_MODE === "counsellor";
 
   /* ---------- layout ---------- */
   function page(active, inner, cls) {
     app.innerHTML = `
       <header class="top">
-        <a class="brand" href="#/"><span class="logo">◆</span><span><b>GEMS Training Academy</b><small>Exotel + Admissions CRM</small></span></a>
-        <nav class="tabs">
+        <a class="brand" href="${CO ? "#/train" : "#/"}"><span class="logo">◆</span><span><b>GEMS Training Academy</b><small>${CO ? "Counsellor training" : "Exotel + Admissions CRM"}</small></span></a>
+        <nav class="tabs">${CO ? `
+          <a href="#/train" class="${active === "train" ? "on" : ""}">Training</a>
+          <a href="#/quizzes" class="${active === "quizzes" ? "on" : ""}">Quizzes</a>` : `
           <a href="#/journey" class="${active === "journey" ? "on" : ""}">Lead Journey Video</a>
           <a href="#/handbook" class="${active === "handbook" ? "on" : ""}">Admin handbook</a>
           <a href="#/train" class="${active === "train" ? "on" : ""}">Train a counsellor</a>
-          <a href="#/quizzes" class="${active === "quizzes" ? "on" : ""}">Quizzes</a>
+          <a href="#/quizzes" class="${active === "quizzes" ? "on" : ""}">Quizzes</a>`}
         </nav>
       </header>
       <main class="${cls || ""}">${inner}</main>`;
@@ -184,8 +188,9 @@
   function viewTrainList() {
     const prog = store.get("train", {});
     page("train", `
-      <section class="hero small"><h1>Train a counsellor</h1>
-      <p>Share your screen on Teams, open a module and go step by step. Play the clip, read the steps, then ask the question at the bottom. End each module with its quiz. Use <kbd>→</kbd> and <kbd>←</kbd> to move, and <b>Full screen</b> for a clean view.</p></section>
+      ${CO ? `<section class="hero small"><h1>Counsellor training</h1>
+      <p>Go through the modules in order. In each step, play the clip and read the steps. End each module with its quiz. Use <kbd>→</kbd> and <kbd>←</kbd> to move, and <b>Full screen</b> for a clean view.</p></section>` : `<section class="hero small"><h1>Train a counsellor</h1>
+      <p>Share your screen on Teams, open a module and go step by step. Play the clip, read the steps, then ask the question at the bottom. End each module with its quiz. Use <kbd>→</kbd> and <kbd>←</kbd> to move, and <b>Full screen</b> for a clean view.</p></section>`}
       <div class="mods">${MODULES.map((m, i) => `
         <a class="mod" href="#/train/${m.id}/0"><span class="num">${i + 1}</span><span class="body"><b>${esc(m.title)}</b><span>${esc(m.summary)}</span>
         <small>${m.lessons.length} steps · about ${m.minutes} min ${prog[m.id] ? `· <span class="ok">last: ${prog[m.id]}%</span>` : ""}</small></span></a>`).join("")}
@@ -292,7 +297,7 @@
 
   /* ---------- quizzes ---------- */
   function quizDefs() {
-    const list = A.ADMIN_QUIZZES.map((z) => ({ id: z.id, group: "Admin", title: z.title, summary: z.summary, questions: () => shuffle(z.questions) }));
+    const list = CO ? [] : A.ADMIN_QUIZZES.map((z) => ({ id: z.id, group: "Admin", title: z.title, summary: z.summary, questions: () => shuffle(z.questions) }));
     MODULES.forEach((m, i) => list.push({ id: "mod-" + m.id, group: "Counsellor", title: `${i + 1}. ${m.title}`, summary: m.summary, questions: () => shuffle(m.bank).slice(0, CFG.QUIZ_SIZE) }));
     list.push({ id: "final", group: "Counsellor", title: "Final mix", summary: `${CFG.FINAL_SIZE} questions from every module.`, questions: () => shuffle(MODULES.flatMap((m) => m.bank)).slice(0, CFG.FINAL_SIZE) });
     return list;
@@ -304,7 +309,7 @@
     const d = quizDefs();
     page("quizzes", `
       <section class="hero small"><h1>Quizzes</h1><p>Pass mark ${CFG.PASS_MARK}%. Questions and options are shuffled every time. Each answer shows the right answer and why.</p></section>
-      <h2 class="sec">Admin (Senthil)</h2><div class="mods">${d.filter((z) => z.group === "Admin").map(card).join("")}</div>
+      ${CO ? "" : `<h2 class="sec">Admin (Senthil)</h2><div class="mods">${d.filter((z) => z.group === "Admin").map(card).join("")}</div>`}
       <h2 class="sec">Counsellor</h2><div class="mods">${d.filter((z) => z.group === "Counsellor").map(card).join("")}</div>`);
   }
   function viewQuiz(id) {
@@ -353,6 +358,7 @@
 
   function route() {
     const p = location.hash.replace(/^#\/?/, "").split("/");
+    if (CO && !["train", "quizzes", "quiz"].includes(p[0])) return viewTrainList();
     if (p[0] === "journey") return viewJourney();
     if (p[0] === "handbook") return viewHandbook(p[1], p[2]);
     if (p[0] === "train" && p[1]) return viewTrain(p[1], p[2]);
