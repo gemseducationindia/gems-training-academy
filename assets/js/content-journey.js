@@ -211,4 +211,7 @@
     ["\"The family enrolled through a Microsoft Form.\"", "Forms are no longer used. Create or update the family in the CRM with fees, discounts and payments."],
     ["\"My discount hasn't gone through.\"", "Open Discount approvals on the lead: it shows whether it is waiting on the principal or finance."]
   );
+  /* Jay, 13 Nov: module "Application to enrolment" removed, module 9 and the Lead Journey Video cover it. */
+  const appIdx = C.MODULES.findIndex((m) => m.id === "application");
+  if (appIdx >= 0) C.MODULES.splice(appIdx, 1);
 })();
