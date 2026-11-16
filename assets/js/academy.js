@@ -15,13 +15,15 @@
   };
   const go = (h) => { location.hash = h; };
   /* Counsellor-only mode (counsellor.html): just the counsellor training and its quizzes. */
-  const CO = window.GTA_MODE === "counsellor";
+  const AP = window.GTA_MODE === "approver";
+  const CO = window.GTA_MODE === "counsellor" || AP;
+  const GROUP = AP ? "Approver" : "Counsellor";
 
   /* ---------- layout ---------- */
   function page(active, inner, cls) {
     app.innerHTML = `
       <header class="top">
-        <a class="brand" href="${CO ? "#/train" : "#/"}"><span class="logo">◆</span><span><b>GEMS Training Academy</b><small>${CO ? "Counsellor training" : "Exotel + Admissions CRM"}</small></span></a>
+        <a class="brand" href="${CO ? "#/train" : "#/"}"><span class="logo">◆</span><span><b>GEMS Training Academy</b><small>${AP ? "Discount approver training" : CO ? "Counsellor training" : "Exotel + Admissions CRM"}</small></span></a>
         <nav class="tabs">${CO ? `
           <a href="#/train" class="${active === "train" ? "on" : ""}">Training</a>
           <a href="#/quizzes" class="${active === "quizzes" ? "on" : ""}">Quizzes</a>` : `
@@ -188,7 +190,8 @@
   function viewTrainList() {
     const prog = store.get("train", {});
     page("train", `
-      ${CO ? `<section class="hero small"><h1>Counsellor training</h1>
+      ${AP ? `<section class="hero small"><h1>Discount approver training</h1>
+      <p>For principals, school heads and finance. Learn how to check and approve or reject a discount in the CRM. Play each clip, read the steps, then take the quiz at the end. Use <kbd>→</kbd> and <kbd>←</kbd> to move.</p></section>` : CO ? `<section class="hero small"><h1>Counsellor training</h1>
       <p>Go through the modules in order. In each step, play the clip and read the steps. End each module with its quiz. Use <kbd>→</kbd> and <kbd>←</kbd> to move, and <b>Full screen</b> for a clean view.</p></section>` : `<section class="hero small"><h1>Train a counsellor</h1>
       <p>Share your screen on Teams, open a module and go step by step. Play the clip, read the steps, then ask the question at the bottom. End each module with its quiz. Use <kbd>→</kbd> and <kbd>←</kbd> to move, and <b>Full screen</b> for a clean view.</p></section>`}
       <div class="mods">${MODULES.map((m, i) => `
@@ -298,8 +301,8 @@
   /* ---------- quizzes ---------- */
   function quizDefs() {
     const list = CO ? [] : A.ADMIN_QUIZZES.map((z) => ({ id: z.id, group: "Admin", title: z.title, summary: z.summary, questions: () => shuffle(z.questions) }));
-    MODULES.forEach((m, i) => list.push({ id: "mod-" + m.id, group: "Counsellor", title: `${i + 1}. ${m.title}`, summary: m.summary, questions: () => shuffle(m.bank).slice(0, CFG.QUIZ_SIZE) }));
-    list.push({ id: "final", group: "Counsellor", title: "Final mix", summary: `${CFG.FINAL_SIZE} questions from every module.`, questions: () => shuffle(MODULES.flatMap((m) => m.bank)).slice(0, CFG.FINAL_SIZE) });
+    MODULES.forEach((m, i) => list.push({ id: "mod-" + m.id, group: GROUP, title: `${i + 1}. ${m.title}`, summary: m.summary, questions: () => shuffle(m.bank).slice(0, CFG.QUIZ_SIZE) }));
+    if (!AP) list.push({ id: "final", group: "Counsellor", title: "Final mix", summary: `${CFG.FINAL_SIZE} questions from every module.`, questions: () => shuffle(MODULES.flatMap((m) => m.bank)).slice(0, CFG.FINAL_SIZE) });
     return list;
   }
   function viewQuizzes() {
@@ -310,7 +313,7 @@
     page("quizzes", `
       <section class="hero small"><h1>Quizzes</h1><p>Pass mark ${CFG.PASS_MARK}%. Questions and options are shuffled every time. Each answer shows the right answer and why.</p></section>
       ${CO ? "" : `<h2 class="sec">Admin (Senthil)</h2><div class="mods">${d.filter((z) => z.group === "Admin").map(card).join("")}</div>`}
-      <h2 class="sec">Counsellor</h2><div class="mods">${d.filter((z) => z.group === "Counsellor").map(card).join("")}</div>`);
+      <h2 class="sec">${GROUP}</h2><div class="mods">${d.filter((z) => z.group === GROUP).map(card).join("")}</div>`);
   }
   function viewQuiz(id) {
     const z = quizDefs().find((x) => x.id === id);
